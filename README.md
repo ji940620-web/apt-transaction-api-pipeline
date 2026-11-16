@@ -4,7 +4,7 @@
 > SQL 뷰·마트로 정제·집계해 Looker Studio 대시보드로 제공하는 엔드투엔드 파이프라인입니다.
 
 - 📊 **대시보드**: [Looker Studio](https://datastudio.google.com/reporting/406c0bd6-f216-4dd5-b817-d774245937bf)
-- 📝 **프로젝트 정리 (Notion)**: [분석 과정과 의사결정 기록](https://torpid-feet-180.notion.site/f59578f0feb682acb490818080d99155)
+- 📝 **프로젝트 정리 (Notion)**: [분석 과정과 의사결정 기록](https://torpid-feet-180.notion.site/41a578f0feb6806d8db4d5514f8f8021?source=copy_link)
 - 📐 **지표 정의**: [docs/metrics.md](docs/metrics.md) · 🔎 **분석 기록**: [docs/findings_log.md](docs/findings_log.md)
 
 | 항목 | 내용 |
