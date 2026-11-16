@@ -1,3 +1,15 @@
+-- ============================================================
+-- 파일: sql/checks/complex_ratio_summary.sql
+-- 목적: 단지·면적대 전세가율의 분포 요약 (100% 초과 비율, 중앙값, 최댓값)
+-- 입력: apt_dataset.v_sales, apt_dataset.v_rents (전세만)
+-- 출력: n_pairs, over_100, over_100_pct, median_ratio, max_ratio
+-- 기간: 2026-08-01 이후로 고정(하드코딩). m_complex_ratio(최근 3개월)와 시간이 지나면 달라진다.
+-- 용도: docs/findings_log.md 의 '전세가율 이상치' 표 중 단지·면적 매칭 행 검증
+-- 해석: 지역 중위값 비율(jeonse_ratio_distribution.sql A)보다 100% 초과 비율이 훨씬 낮으면
+--       100% 초과의 원인이 거래 구성 불일치라는 근거가 된다.
+-- 작성: 2026-11-16 (주석 추가)
+-- ============================================================
+
 WITH s AS (
   SELECT region_name, complex_key,
          CAST(ROUND(area_m2/5)*5 AS INT64) AS area_band,
