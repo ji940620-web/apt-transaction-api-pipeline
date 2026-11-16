@@ -1,0 +1,28 @@
+name: Rent Pipeline
+
+on:
+  schedule:
+    - cron: '30 18 * * 0' # 매매보다 30분 뒤 (한국 시간 매주 월요일 새벽 3시 30분)
+  workflow_dispatch: # 수동 실행 버튼
+
+jobs:
+  run-etl:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install pandas requests google-cloud-bigquery db-dtypes pyarrow
+
+      - name: Run rent collector
+        env:
+          DEAL_API_KEY: ${{ secrets.DEAL_API_KEY }}
+          GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
+        run: python src/incremental_collector_rent.py

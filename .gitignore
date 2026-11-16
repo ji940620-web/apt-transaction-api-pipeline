@@ -1,0 +1,33 @@
+﻿# ---- 비밀값 / 인증 키 ----
+.env
+.env.*
+*.pem
+*.key
+service_account*.json
+*credentials*.json
+project-*.json
+
+# ---- 데이터 (원본·중간 산출물은 공개하지 않음) ----
+data/
+*.csv
+*.parquet
+*.xlsx
+
+# ---- 노트북 (개인 분석용) ----
+notebooks/
+*.ipynb
+.ipynb_checkpoints/
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# ---- 편집기 / OS ----
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# 참고: "법정동코드 전체자료.txt"는 수집기가 읽는 입력 파일이므로 추적 대상 (무시하지 않음)
